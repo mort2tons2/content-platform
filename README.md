@@ -1,5 +1,5 @@
 # content-platform
-Microservices
-Command, Query, Handler
-MassTransit RabbitMQ
-Docker
+- Microservices
+- Command, Query, Handler, Publish Events, Consumer
+- MassTransit RabbitMQ
+- Docker
