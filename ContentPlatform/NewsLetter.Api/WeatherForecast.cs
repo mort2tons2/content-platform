@@ -1,4 +1,4 @@
-namespace ContentPlatform
+namespace NewsLetter.Api
 {
     public class WeatherForecast
     {

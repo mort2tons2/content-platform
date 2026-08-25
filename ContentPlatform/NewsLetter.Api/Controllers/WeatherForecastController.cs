@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContentPlatform.Controllers
+namespace NewsLetter.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

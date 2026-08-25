@@ -12,19 +12,19 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["ContentPlatform/ContentPlatform.csproj", "ContentPlatform/"]
-RUN dotnet restore "./ContentPlatform/ContentPlatform.csproj"
+COPY ["NewsLetter.Api/NewsLetter.Api.csproj", "NewsLetter.Api/"]
+RUN dotnet restore "./NewsLetter.Api/NewsLetter.Api.csproj"
 COPY . .
-WORKDIR "/src/ContentPlatform"
-RUN dotnet build "./ContentPlatform.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/NewsLetter.Api"
+RUN dotnet build "./NewsLetter.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./ContentPlatform.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./NewsLetter.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ContentPlatform.dll"]
+ENTRYPOINT ["dotnet", "NewsLetter.Api.dll"]

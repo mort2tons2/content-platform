@@ -1,3 +1,8 @@
 <Solution>
-  <Project Path="ContentPlatform/ContentPlatform.csproj" />
+  <Project Path="Contracts/Contracts.csproj" Id="0d6c92a3-1ab6-4478-93bf-cc46e530bd3b" />
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+  <Project Path="NewsLetter.Api/NewsLetter.Api.csproj" Id="0fe97de6-89cb-42fb-a43f-e4d44ad47cc0" />
+  <Project Path="NewsLetter.Reporting.Api/NewsLetter.Reporting.Api.csproj" Id="1fec03be-1d4c-442d-8592-8694c5154934" />
 </Solution>
